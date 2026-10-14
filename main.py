@@ -1,6 +1,6 @@
 # Titulo -  Sistema de vendas
 # Seção Cadastrar Vendas
-    # Cmapo Data
+    # Campo Data
     # Campo vendedor - Ana, Bruno, Carla
     # Campo Produto - Notebook, Fone , Celular
     # Campo Quantidade
