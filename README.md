@@ -1,5 +1,7 @@
 # 📊 Sistema de Vendas | Python, Streamlit e Análise de Dados
 
+[![Acessar aplicativo](https://img.shields.io/badge/Acessar_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://sistema-de-vendas-3aver4pa4wqpe3z2jxrqyj.streamlit.app)
+
 Aplicação web desenvolvida para **registrar vendas, organizar informações comerciais e acompanhar indicadores de faturamento** por meio de um dashboard interativo.
 
 > **Sobre o projeto**
@@ -7,6 +9,16 @@ Aplicação web desenvolvida para **registrar vendas, organizar informações co
 > Projeto de portfólio desenvolvido a partir do conteúdo educacional *Sistema de Vendas com Python*, da Jornada Python, promovida pela Hashtag Programação, com adaptações e melhorias próprias nas funcionalidades e na organização do código.
 >
 > A aplicação utiliza dados fictícios para fins educacionais e demonstra conceitos de desenvolvimento em Python, manipulação de dados e visualização de indicadores comerciais.
+
+## 🚀 Demonstração Online
+
+A aplicação está disponível para acesso e testes pelo **Streamlit Community Cloud**.
+
+🔗 **[Acessar Sistema de Vendas — Demonstração Online](https://sistema-de-vendas-3aver4pa4wqpe3z2jxrqyj.streamlit.app)**
+
+Na aplicação, é possível cadastrar vendas com cálculo de valor e desconto, consultar e excluir registros, exportar os dados em CSV e acompanhar indicadores de faturamento em gráficos interativos.
+
+*Os dados utilizados são fictícios e destinam-se a fins educacionais.*
 
 ## 🎯 Visão geral
 
@@ -27,12 +39,15 @@ Com Python, Streamlit, Pandas e Plotly, a solução reúne **cadastro de vendas*
 | **CSV** | Armazenamento local dos registros |
 | **GitHub** | Versionamento e disponibilização do código |
 
-## ✅ Funcionalidades da versão original
+## ✅ Funcionalidades
 
-- Cadastro de vendas com **data, vendedor, produto, quantidade e valor**.
+- Cadastro de vendas com **data, vendedor, produto e quantidade**, com cálculo automático do valor a partir do preço unitário.
+- Aplicação de desconto percentual opcional no cadastro, refletido no valor final da venda.
 - Consulta dos registros em tabela interativa.
-- Cálculo do **faturamento total** por soma da coluna `valor`.
-- Gráfico de barras comparando vendas por vendedor, segmentadas por produto.
+- Exclusão de vendas selecionadas, com confirmação e cópia de segurança local.
+- Exportação do CSV para análises externas, como no Power BI.
+- Indicadores de **faturamento total, número de vendas, unidades vendidas e ticket médio**.
+- Gráfico de barras comparando faturamento por vendedor, segmentado por produto.
 - Gráfico de pizza mostrando a participação dos produtos no faturamento.
 
 ## 🔄 Fluxo de dados
@@ -66,6 +81,12 @@ Os dados são fictícios. A coluna `valor` é utilizada para apurar o faturament
 ## 📈 Indicadores e visualizações
 
 **Faturamento total**: soma dos valores de venda registrados na base.
+
+**Quantidade de vendas**: número de registros no DataFrame.
+
+**Unidades vendidas**: soma das quantidades comercializadas.
+
+**Ticket médio**: faturamento total dividido pela quantidade de vendas.
 
 **Vendas por vendedor**: visualização em barras para comparar a distribuição do faturamento por vendedor e produto.
 
@@ -119,16 +140,11 @@ Este projeto permitiu praticar:
 - Visualização de dados com Plotly.
 - Organização e documentação de um projeto no GitHub.
 
-## 🚧 Melhorias em desenvolvimento
+## 🚧 Próximas evoluções
 
-As funcionalidades abaixo fazem parte do plano de evolução do projeto e **devem ser marcadas como concluídas apenas após confirmação no código publicado**:
-
-- Cadastro com preço unitário predefinido e desconto opcional.
-- Exclusão de registros com confirmação e backup.
-- Novos KPIs: quantidade de vendas, unidades e ticket médio.
-- Exportação do CSV atualizado para análise no Power BI.
-- Construção de um dashboard complementar no Power BI.
-- Evolução para armazenamento persistente em banco de dados.
+- Construção de um dashboard complementar no Power BI a partir do CSV exportado.
+- Armazenamento persistente em banco de dados.
+- Possível registro do percentual de desconto na base para análises históricas (atualmente, a coluna `valor` armazena o total final da venda).
 
 ## ⚠️ Limitações
 
