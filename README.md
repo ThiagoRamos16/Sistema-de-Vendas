@@ -6,9 +6,8 @@ Aplicação web desenvolvida para **registrar vendas, organizar informações co
 
 > **Sobre o projeto**
 >
-> Projeto de portfólio desenvolvido a partir do conteúdo educacional *Sistema de Vendas com Python*, da Jornada Python, promovida pela Hashtag Programação, com adaptações e melhorias próprias nas funcionalidades e na organização do código.
->
-> A aplicação utiliza dados fictícios para fins educacionais e demonstra conceitos de desenvolvimento em Python, manipulação de dados e visualização de indicadores comerciais.
+> Projeto de portfólio desenvolvido a partir do conteúdo educacional Sistema de Vendas com Python, da Jornada Python, promovida pela Hashtag Programação, com adaptações e melhorias próprias nas funcionalidades e na organização do código.
+A aplicação utiliza dados fictícios para fins educacionais e demonstra conceitos de desenvolvimento em Python, manipulação de dados e visualização de indicadores comerciais.
 
 ## 🚀 Demonstração Online
 
@@ -37,6 +36,9 @@ Com Python, Streamlit, Pandas e Plotly, a solução reúne **cadastro de vendas*
 | **Pandas** | Leitura, atualização, agregação e gravação do CSV |
 | **Plotly Express** | Gráficos interativos de vendas |
 | **CSV** | Armazenamento local dos registros |
+| **Power BI Desktop** | Dashboard de análise comercial e filtros interativos 
+| **Power Query** | Importação, tipagem e verificação de qualidade do CSV |
+| **DAX** | Medidas de faturamento, vendas, unidades vendidas e ticket médio |
 | **GitHub** | Versionamento e disponibilização do código |
 
 ## ✅ Funcionalidades
@@ -62,6 +64,12 @@ DataFrame Pandas
 Leitura e gravação em vendas.csv
        ↓
 Indicadores e gráficos Plotly
+       ↓
+Exportação manual do CSV pelo Streamlit
+       ↓
+Power Query (importação, tipos e validação)
+       ↓
+Medidas DAX e dashboard Power BI
 ```
 
 O sistema lê `vendas.csv` com `pd.read_csv()`. Ao cadastrar uma nova venda, adiciona uma linha ao DataFrame e atualiza o arquivo usando `to_csv(index=False)`. O mesmo conjunto de dados alimenta a tabela e o dashboard.
@@ -94,9 +102,48 @@ Os dados são fictícios. A coluna `valor` é utilizada para apurar o faturament
 
 Essas visualizações apoiam a exploração inicial dos dados, mas **não representam resultados de uma operação comercial real**.
 
+
+## 📊 Dashboard complementar no Power BI
+Como evolução do Sistema de Vendas, foi criado um dashboard comercial no Power BI Desktop com os dados exportados em CSV pelo Streamlit. A proposta é demonstrar um fluxo de análise: registro e exportação das vendas → preparação dos dados → cálculo de indicadores → visualização interativa.
+
+
+
+## 🔎 Preparação e qualidade dos dados
+No Power Query, foram conferidos os tipos das colunas (`data`, `vendedor`, `produto`, `quantidade`, `valor`), a presença de erros e valores vazios e a interpretação dos números decimais durante a importação. A base utilizada é fictícia, e a checagem de tipos e preenchimento não substitui a validação de regras de negócio.
+
+
+## 📐 Indicadores com DAX
+| Indicador | Cálculo utilizado |
+| --- | --- |
+| **Faturamento Total** | `SUM(vendas[valor])` |
+| **Quantidade de Vendas** | `COUNTROWS(vendas)` |
+| **Unidades Vendidas** | `SUM(vendas[quantidade])` |
+| **Ticket Médio** | `DIVIDE([Faturamento Total], [Quantidade de Vendas], 0)` |
+
+As medidas respondem aos filtros aplicados ao relatório. Os visuais também utilizam formatação monetária para apresentar os indicadores em reais.
+
+
+## 📈 Análises e interatividade
+- Faturamento por vendedor: comparação da receita entre os vendedores da base.
+- Faturamento por produto: comparação da participação de Notebook, Celular e Fone na receita.
+- Evolução mensal do faturamento: acompanhamento do desempenho em diferentes meses.
+- Segmentações por vendedor e produto: exploração dinâmica dos indicadores e gráficos.
+
+
+## 🖥️ Prévia do dashboard
+<img width="1462" height="826" alt="image" src="https://github.com/user-attachments/assets/34c8ae6b-2178-4a7c-8b21-98994dc388f2" />
+
+### 📥 Arquivo Power BI
+
+O dashboard está disponível para download e pode ser aberto no Power BI Desktop.
+
+[📊 Acessar Dashboard Comercial (.pbix)](power-bi/Dashboard_Comercial_Vendas.pbix)
+
+
 ## ▶️ Como executar localmente
 
 **Pré-requisito:** Python instalado.
+
 
 1. Clone o repositório:
 
@@ -126,7 +173,10 @@ Sistema-de-Vendas/
 ├── main.py            # Interface, cadastro e dashboard
 ├── vendas.csv         # Dados fictícios de vendas
 ├── requirements.txt   # Dependências Python
-└── README.md          # Documentação do projeto
+├── README.md          # Documentação do projeto
+└── power-bi/
+    ├── Dashboard_Comercial_Vendas_Final.pbix  # Relatório Power BI
+    └── dashboard_preview.png                 # Captura do dashboard
 ```
 
 ## 🧠 Aprendizados
@@ -138,7 +188,10 @@ Este projeto permitiu praticar:
 - Criação de formulários e componentes web com Streamlit.
 - Cálculo de indicadores comerciais.
 - Visualização de dados com Plotly.
+- Tratamento e validação dos dados no Power Query.
+- Criação de medidas DAX e dashboards interativos no Power BI.
 - Organização e documentação de um projeto no GitHub.
+  
 
 ## 🚧 Próximas evoluções
 
